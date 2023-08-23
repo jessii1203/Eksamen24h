@@ -2,6 +2,9 @@ package com.example.eksamen24h.controller;
 
 import ch.qos.logback.core.model.Model;
 import com.example.eksamen24h.model.Album;
+import com.example.eksamen24h.model.Availability;
+import com.example.eksamen24h.model.Reservation;
+import com.example.eksamen24h.model.ReservationStatus;
 import com.example.eksamen24h.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,4 +41,8 @@ public class AlbumController {
         return service.deleteData(id);
     }
 
+    @GetMapping("album/availability/{availability}")
+    public List<Album> getByReservation(@PathVariable Availability availability) {
+        return service.getByAvailability(availability);
+    }
 }

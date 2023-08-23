@@ -5,3 +5,4 @@ public enum ReservationStatus {
     TILMELDT,
     AFMELDT,
 }
+

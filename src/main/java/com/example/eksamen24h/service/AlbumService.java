@@ -2,6 +2,9 @@ package com.example.eksamen24h.service;
 
 import ch.qos.logback.core.model.Model;
 import com.example.eksamen24h.model.Album;
+import com.example.eksamen24h.model.Availability;
+import com.example.eksamen24h.model.Reservation;
+import com.example.eksamen24h.model.ReservationStatus;
 import com.example.eksamen24h.repositories.AlbumRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,5 +47,9 @@ public class AlbumService {
             return new ResponseEntity<>(HttpStatus.OK);
         } else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    public List<Album> getByAvailability(Availability availability) {
+        return albumRepo.findAllByAvailability(availability);
     }
 }

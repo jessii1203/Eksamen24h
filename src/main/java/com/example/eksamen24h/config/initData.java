@@ -42,6 +42,25 @@ public class initData implements CommandLineRunner {
         reservation.setAlbum(album);
         reservationRepo.save(reservation);
 
+        Album album2 = new Album();
+        album2.setArtist("Taylor Swift");
+        album2.setTitle("Blank space");
+        album2.setGenre("Pop");
+        album2.setAvailability(Availability.UNAVAILABLE);
+        albumRepo.save(album2);
+
+        Customer customer2 = new Customer();
+        customer2.setName("James Bond");
+        customer2.setEmail("Bond@gmail.com");
+        customer2.setPhoneNumber("000221");
+        customerRepo.save(customer2);
+
+        Reservation reservation2 = new Reservation();
+        reservation2.setReservationStatus(ReservationStatus.TILMELDT);
+        reservation2.setCustomer(customer2);
+        reservation2.setAlbum(album2);
+        reservationRepo.save(reservation);
+
 
     }
 }

@@ -2,6 +2,7 @@ package com.example.eksamen24h.controller;
 
 import com.example.eksamen24h.model.Album;
 import com.example.eksamen24h.model.Reservation;
+import com.example.eksamen24h.model.ReservationStatus;
 import com.example.eksamen24h.service.AlbumService;
 import com.example.eksamen24h.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class ReservationController {
     @Autowired
     ReservationService service;
 
+
     @PostMapping("reservation/postData")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation postData(@RequestBody Reservation reservation) {
@@ -33,6 +35,8 @@ public class ReservationController {
     public ResponseEntity<Reservation> updateData(@PathVariable int id, @RequestBody Reservation reservation) {
         return service.updateData(id, reservation);
     }
+
+
 
     @DeleteMapping("reservation/deleteData/{id}")
     public ResponseEntity<Reservation> deleteData(@PathVariable int id) {

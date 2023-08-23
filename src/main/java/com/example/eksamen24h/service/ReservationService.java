@@ -2,6 +2,7 @@ package com.example.eksamen24h.service;
 
 import ch.qos.logback.core.model.Model;
 import com.example.eksamen24h.model.Reservation;
+import com.example.eksamen24h.model.ReservationStatus;
 import com.example.eksamen24h.repositories.ReservationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,10 @@ public class ReservationService {
     ReservationRepo reservationRepo;
 
     public Reservation postData(Reservation reservation) {
+        reservation.setReservationStatus(ReservationStatus.TILMELDT);
         return reservationRepo.save(reservation);
     }
+
 
 
     public List<Reservation> allData() {

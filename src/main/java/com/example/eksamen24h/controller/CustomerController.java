@@ -34,12 +34,9 @@ public class CustomerController {
     public ResponseEntity<Customer> updateData(@PathVariable int id, @RequestBody Customer customer) {
         return service.updateData(id, customer);
     }
-
     @DeleteMapping("customer/deleteData/{id}")
     public ResponseEntity<Customer> deleteData(@PathVariable int id) {
         return service.deleteData(id);
     }
-
-
 
 }
